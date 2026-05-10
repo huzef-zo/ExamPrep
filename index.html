@@ -339,7 +339,7 @@ async function renderPDF(){
   const wrap=$('pdf-wrap');wrap.innerHTML='';
   const page=await pdfDoc.getPage(pdfPage);
   const ww=wrap.clientWidth||360;
-  const bvp=page.getViewport({scale:1});const scale=Math.min(ww/bvp.width,2);const vp=page.getViewport({scale});
+  const bvp=page.getViewport({scale:1});const scale=Math.min(ww/bvp.width,3);const vp=page.getViewport({scale});
   const canvas=document.createElement('canvas');canvas.width=vp.width;canvas.height=vp.height;
   wrap.appendChild(canvas);await page.render({canvasContext:canvas.getContext('2d'),viewport:vp}).promise;
   $('pdf-nav-txt').textContent='Page '+pdfPage+' of '+pdfTotal;$('pdf-page-label').textContent=pdfPage+' / '+pdfTotal;
