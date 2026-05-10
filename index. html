@@ -212,11 +212,10 @@
 // ║  PASTE YOUR GROQ KEYS BELOW          ║
 // ║  Free at: console.groq.com           ║
 // ╚══════════════════════════════════════╝
-const GROQ_KEYS=[
-  'YOUR_GROQ_KEY_1',
-  'YOUR_GROQ_KEY_2',
-  'YOUR_GROQ_KEY_3',
-];
+const GROQ_KEYS=(()=>{
+  const saved=localStorage.getItem('ep_keys');
+  return saved?JSON.parse(saved):[];
+})();
 const VISION_MODELS=[
   'meta-llama/llama-4-scout-17b-16e-instruct',
   'meta-llama/llama-4-maverick-17b-128e-instruct',
