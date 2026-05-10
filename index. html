@@ -233,7 +233,15 @@ const TEXT_MODELS=[
   'llama3-8b-8192',
   'gemma2-9b-it',
 ];
-
+function saveKey(){
+  const v=$('key-input').value.trim();
+  if(!v){return;}
+  localStorage.setItem('ep_keys',JSON.stringify([v]));
+  $('key-msg').style.color='var(--green)';
+  $('key-msg').textContent='Key saved on this device ✓';
+  $('key-input').value='';
+  $('key-input').placeholder='Key saved — tap Save to update';
+}
 const $=id=>document.getElementById(id);
 let pdfB64=null,pdfDoc=null,pdfPage=1,pdfTotal=1;
 let questionCount=0,choiceType='ABCD';
