@@ -451,6 +451,10 @@ $('reset-btn').onclick=()=>{
 };
 
 function sw(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));$(id).classList.add('active');}
+if(localStorage.getItem('ep_keys')){
+  $('key-msg').style.color='var(--green)';
+  $('key-msg').textContent='Key saved on this device ✓';
+}
 </script>
 </body>
 </html>
